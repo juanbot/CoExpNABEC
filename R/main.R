@@ -12,7 +12,6 @@ initDb = function(mandatory=F){
   category = "nabec"
   the.dir = system.file("", category, package = "CoExpNABEC")
   tissue = getNABECTissues()
-  
     CoExpNets::addNet(which.one=category,
            tissue=tissue,
            netfile=getNABECNet(tissue),
@@ -98,7 +97,10 @@ prepareResiduals = function(){
   samples = read.table(samplef,stringsAsFactors=F)$V1
   samples = gsub("-",".",samples)
   expr.data = expr.data[rownames(expr.data) %in% samples,colnames(expr.data) %in% transcripts]
-  cat("We'll create a network from",nrow(expr.data),"and",ncol(expr.data),"genes\n")
-  saveRDS(expr.data,"~/Dropbox/KCL/workspace/CoExpNABEC/inst/nabec/nabec_resids.rds")
+  ucscgenes = read.table("~/Dropbox/nih/data/hg19_ucsc_known_genes.txt",stringsAsFactors=F,header=T,sep="\t")
+  colnames(expr.data) = ucscgenes$hg19.kgXref.geneSymbol[match(colnames(expr.data),ucscgenes$hg19.knownGene.name)]
+  saveRDS(expr.data,paste0("~/Dropbox/KCL/workspace/CoExpNABEC/inst/nabec/",
+                           getNABECTissues(),"_resids.rds"))
+  
   
 }
