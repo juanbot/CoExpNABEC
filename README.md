@@ -1,6 +1,6 @@
 # CoExpNABEC
 
-We have available in this package a co-expression network built from RNA-seq of 311 samples from frontal cortex, total RNA, stranded, aligned with STAR using hg19 UCSC reference genome and an initial quantification with salmon which quantifies at the transcript level with TPM (transcripts per million) quantification. 
+We have available in this package a co-expression network built from RNA-seq of 311 samples from frontal cortex, total RNA, stranded, aligned with STAR using hg19 UCSC reference genome and an initial quantification with salmon which quantifies at the transcript level with TPM (transcripts per million) quantification. The co-expression network has beeen created with CoExpNets software by Juan A. Botía with help from Mark Cookson, Raphael Gibbs (from NIH) and Mina Ryten (from UCL, IoN).
 
 Samples have been QCed and annotated in this regard. Also, there is exome sequencing and genotyping for a subset of these individuals. Most of these last subsets of individuals include methylation data.
 
